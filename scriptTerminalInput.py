@@ -190,10 +190,6 @@ class ColorPaletteExtractor:
     def rgb2hex(r, g, b):
         return f'{r:02x}{g:02x}{b:02x}'
 
-    '''
-        Works only if pixels have not been filtered, 'cause the index is fucked up
-    '''
-
     def recolor_pixels(self):
         h = self.shape[0]
         w = self.shape[1]
@@ -252,38 +248,3 @@ if __name__ == '__main__':
         #print(colors)
 
         recolored = dc.recolor_pixels()
-        
-        # display img
-        #plt.figure()
-        #plt.axis("off")
-        #plt.imshow(recolored)
-        #plt.show()
-
-        #dc.print_clusters()
-
-        # display dominance order
-        #dc.plot_histogram()
-
-        # print(dc.find_name('#cc0000')) # returns "red"
-        # print(dc.find_name('#000001'))
-        # print(dc.find_name('#fffffe'))
-        # print(dc.find_name('#808080'))
-
-        #for i in range(clusters):
-        #print('{} -> {}'.format(colors[i], dc.nearest_colour(colors[i])))
-
-    #print("prova clusters")
-    #dc.print_clusters()
-
-    print(' ')
-    print('END END END END')
-
-    print(colors)
-    #List of extracted rgb colors
-    color_list = list(map(lambda col: col[1], colors))
-    print(color_list)
-
-    #print(file_nameIre)
-    print(' ')
-    plt.ioff()
-    plt.show()
