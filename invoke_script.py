@@ -5,7 +5,7 @@ from scriptTerminalInput import ColorPaletteExtractor
 import find_closest
 
 # Specify the path to the folder containing the images
-folder_path = "/Users/irene/Desktop/YoonaRepo/ColorExtractorIre/colorExtYoona"
+folder_path = "-INSERT CORRECT PATH"
 
  # Creazione del DataFrame
 df = pd.DataFrame(columns=[
@@ -82,10 +82,8 @@ for filename in os.listdir(folder_path):
             row_values[f'Pantone code {column_index}'] = pantone_code
             row_values[f'Cmyk code {column_index}'] = cmyk_code
 
-        df = df.append({'filename': filename, **row_values}, ignore_index=True)
-        
-print(df)
+        df = df.append({'filename': filename, **row_values}, ignore_index=True)      
 
 # Export dataframe in a csv
-df.to_csv('output.csv', index=False)
+df.to_csv('INSERT CSV NAME.csv', index=False)
 
