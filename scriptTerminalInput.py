@@ -158,9 +158,11 @@ class ColorPaletteExtractor:
         return self.colors
 
     # prints the URLs of websites where the user can see the colors in the palette
+    # If invocation from invoke_script.py -> "colors" have to be switched to "self.colors"
+    
     def print_clusters(self):
-        print("https://coolors.co/" + "-".join(self.rgb2hex(*c[1]) for c in colors))
-        for c in colors:
+        print("https://coolors.co/" + "-".join(self.rgb2hex(*c[1]) for c in colors))  # self.colors if external call
+        for c in colors: # self.colors if external call
             chex = self.rgb2hex(*c[1])
             print("https://encycolorpedia.de/" + str(chex))
 
