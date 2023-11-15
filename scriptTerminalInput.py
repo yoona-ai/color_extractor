@@ -2,7 +2,7 @@
 Title: Image Processing Script with Input as Command-Line Argument
 
 Description:
-In this color-extractor version, th images provided as command-line arguments ("python script.py -i image.jpg")
+In this color-extractor version, the images provided as command-line arguments ("python script.py -i image.jpg")
 """
 
 import math
@@ -18,6 +18,17 @@ from colormath.color_objects import sRGBColor, LabColor
 from colormath.color_conversions import convert_color
 from colormath.color_diff import delta_e_cie2000
 
+# patch_asscalar() is a temporary solution to address the deprecation of "asscalar" in NumPy (deprecated since version 1.16)
+# Colormath library still uses "asscalar," so this code is added as a hook to allow the code to function until it gets upgraded
+# without downgrading NumPy and maintain compatibility.
+
+def patch_asscalar(a):
+    return a.item()
+
+setattr(np, "asscalar", patch_asscalar)
+
+
+# Start official color extractor code
 
 simple_colours = (
     (0, 0, 0, "black"),
